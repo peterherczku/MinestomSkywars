@@ -4,6 +4,7 @@ import dev.blockeed.commands.GamemodeCommand;
 import dev.blockeed.commands.SkywarsCommand;
 import dev.blockeed.events.GeneralEventHandler;
 import dev.blockeed.managers.GameManager;
+import dev.blockeed.managers.SidebarManager;
 import dev.blockeed.managers.WorldManager;
 import io.github.togar2.pvp.MinestomPvP;
 import net.minestom.server.MinecraftServer;
@@ -16,6 +17,7 @@ public class Main {
         GeneralEventHandler.init();
         GameManager.init();
         MinestomPvP.init();
+        SidebarManager.init();
 
         registerCommands();
 

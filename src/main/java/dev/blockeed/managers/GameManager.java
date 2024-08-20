@@ -34,10 +34,12 @@ public class GameManager {
 
     public static void addPlayer(Player player) {
         players.add(player);
+        SidebarManager.addPlayer(player);
     }
 
     public static void removePlayer(Player player) {
         players.remove(player);
+        SidebarManager.removePlayer(player);
     }
 
     public static boolean containsPlayer(Player player) {
