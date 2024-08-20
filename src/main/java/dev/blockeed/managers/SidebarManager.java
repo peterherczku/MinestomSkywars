@@ -9,20 +9,30 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.scoreboard.Sidebar;
 import net.minestom.server.timer.TaskSchedule;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SidebarManager {
 
-    private static Sidebar sidebar;
-
+    private static Map<Player, Sidebar> sidebars = new HashMap<>();
     public static void init() {
-        sidebar = new Sidebar(Component.text("SkyWars").color(TextColor.fromHexString("#7ed6df")).decorate(TextDecoration.BOLD));
         updateTask();
     }
 
     public static void updateTask() {
-        MinecraftServer.getSchedulerManager().buildTask(SidebarManager::setupRunningLines).repeat(TaskSchedule.tick(20)).schedule();
+        MinecraftServer.getSchedulerManager().buildTask(SidebarManager::setRunningLines).repeat(TaskSchedule.tick(20)).schedule();
     }
 
-    public static void setupRunningLines() {
+    public static void setRunningLines() {
+        sidebars.forEach(((player, sidebar) -> {
+            sidebar.setTitle(Component.text("SkyWars").color(TextColor.fromHexString("#7ed6df")).decorate(TextDecoration.BOLD));
+            sidebar.updateLineContent("6", Component.text("Kills: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text("0").color(TextColor.fromHexString("#7ed6df"))));
+            sidebar.updateLineContent("8",                 Component.text("Players left: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(GameManager.getAlivePlayers().size() - 1).color(TextColor.fromHexString("#7ed6df"))));
+        }));
+    }
+
+    public static void addPlayer(Player player) {
+        Sidebar sidebar = new Sidebar("");
         Sidebar.ScoreboardLine line1 = new Sidebar.ScoreboardLine(
                 "1",
                 Component.text("  www.blockeed.dev").color(TextColor.fromHexString("#7ed6df")),
@@ -68,16 +78,6 @@ public class SidebarManager {
                 Component.text(""),
                 9
         );
-
-        if (sidebar.getLine("1") != null) sidebar.removeLine("1");
-        if (sidebar.getLine("2") != null) sidebar.removeLine("2");
-        if (sidebar.getLine("3") != null) sidebar.removeLine("3");
-        if (sidebar.getLine("4") != null) sidebar.removeLine("4");
-        if (sidebar.getLine("5") != null) sidebar.removeLine("5");
-        if (sidebar.getLine("6") != null) sidebar.removeLine("6");
-        if (sidebar.getLine("7") != null) sidebar.removeLine("7");
-        if (sidebar.getLine("8") != null) sidebar.removeLine("8");
-        if (sidebar.getLine("9") != null) sidebar.removeLine("9");
         sidebar.createLine(line1);
         sidebar.createLine(line2);
         sidebar.createLine(line3);
@@ -87,14 +87,14 @@ public class SidebarManager {
         sidebar.createLine(line7);
         sidebar.createLine(line8);
         sidebar.createLine(line9);
-    }
-
-    public static void addPlayer(Player player) {
         sidebar.addViewer(player);
     }
 
     public static void removePlayer(Player player) {
-        sidebar.removeViewer(player);
+        if (sidebars.containsKey(player)) {
+            sidebars.get(player).removeViewer(player);
+            sidebars.remove(player);
+        }
     }
 
 }
