@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7cf7d1d-2d5d-4273-9681-8e381fcce9af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/SidebarManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/SidebarManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
