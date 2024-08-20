@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7cf7d1d-2d5d-4273-9681-8e381fcce9af" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/commands/GamemodeCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/commands/SkywarsCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/state/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/state/impl/EndingState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/state/impl/LobbyState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/state/impl/RunningState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/entities/state/impl/WaitingState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/events/GeneralEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/ChestManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/GameManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/MapManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/PlayerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/managers/WorldManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/utils/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/blockeed/utils/GsonUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/DIM-1/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/DIM1/data/raids_end.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/advancements/131b2d9b-586f-49a7-ba41-707a388db95e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/entities/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/entities/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/entities/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/entities/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/level.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/level.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/playerdata/131b2d9b-586f-49a7-ba41-707a388db95e.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/playerdata/131b2d9b-586f-49a7-ba41-707a388db95e.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/poi/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/poi/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/poi/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/poi/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/region/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/region/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/region/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/region/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/session.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/aquamarine/stats/131b2d9b-586f-49a7-ba41-707a388db95e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/map.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2kppgLB5cT69nWLtpKpv5L4wZBb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/peterherczku/IdeaProjects/MinestomSkywars/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.blockeed.Main" />
+      <module name="MinestomSkywars.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.blockeed.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7cf7d1d-2d5d-4273-9681-8e381fcce9af" name="Changes" comment="" />
+      <created>1723990484443</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723990484443</updated>
+    </task>
+    <servers />
+  </component>
+</project>
