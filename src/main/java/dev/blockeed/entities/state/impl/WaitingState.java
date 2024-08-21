@@ -47,10 +47,12 @@ public class WaitingState extends GameState {
     public void run() {
         super.run();
 
-        GameManager.getPlayers().forEach(player -> {
-            Component title = Component.text(getTime()).color(TextColor.fromHexString("#7ed6df"));
-            player.sendTitlePart(TitlePart.TITLE, title);
-        });
+        if (getTime() >= 1) {
+            GameManager.getPlayers().forEach(player -> {
+                Component title = Component.text(getTime()).color(TextColor.fromHexString("#7ed6df"));
+                player.sendTitlePart(TitlePart.TITLE, title);
+            });
+        }
 
         if (getTime() == 1) {
             for (int i = 0; i < GameManager.getPlayers().size(); i++) {

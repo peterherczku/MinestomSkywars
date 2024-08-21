@@ -133,6 +133,10 @@ public class RunningState extends GameState {
         });
         node.addListener(EntityDamageEvent.class, event -> {
             if ((!(event.getEntity() instanceof Player player))) return;
+            if (event.getDamage().getAttacker() instanceof Player damager && PlayerManager.isSpectator(damager)) {
+                event.setCancelled(true);
+                return;
+            }
             if (!PlayerManager.isSpectator(player)) {
                 if (player.getHealth() - event.getDamage().getAmount() > 0) return;
                 event.setCancelled(true);

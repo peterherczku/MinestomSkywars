@@ -28,7 +28,7 @@ public class SidebarManager {
         sidebars.forEach(((player, sidebar) -> {
             sidebar.setTitle(Component.text("SkyWars").color(TextColor.fromHexString("#7ed6df")).decorate(TextDecoration.BOLD));
             sidebar.updateLineContent("6", Component.text("Kills: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text("0").color(TextColor.fromHexString("#7ed6df"))));
-            sidebar.updateLineContent("8", Component.text("Players left: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(GameManager.getAlivePlayers().size() - 1).color(TextColor.fromHexString("#7ed6df"))));
+            sidebar.updateLineContent("8", Component.text("Players left: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(GameManager.getAlivePlayers().size()).color(TextColor.fromHexString("#7ed6df"))));
         }));
     }
 
@@ -72,7 +72,7 @@ public class SidebarManager {
         );
         Sidebar.ScoreboardLine line8 = new Sidebar.ScoreboardLine(
                 "8",
-                Component.text("Players left: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(GameManager.getAlivePlayers().size() - 1).color(TextColor.fromHexString("#7ed6df"))),
+                Component.text("Players left: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(GameManager.getAlivePlayers().size()).color(TextColor.fromHexString("#7ed6df"))),
                 8
         );
         Sidebar.ScoreboardLine line9 = new Sidebar.ScoreboardLine(

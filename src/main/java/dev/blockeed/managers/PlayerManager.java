@@ -5,18 +5,19 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.title.TitlePart;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.damage.Damage;
 import net.minestom.server.entity.damage.DamageType;
+import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
+import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import net.minestom.server.potion.Potion;
 import net.minestom.server.potion.PotionEffect;
+import net.minestom.server.scoreboard.TabList;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PlayerManager {
 
@@ -66,20 +67,20 @@ public class PlayerManager {
         player.sendTitlePart(TitlePart.SUBTITLE, subtitle);
         player.sendMessage(Constants.PREFIX.append(
                 Component.text("You died! ").decorate(TextDecoration.BOLD).color(TextColor.fromHexString("#22a6b3"))
-        ).append(Component.text("You can follow the gameplay as a spectator.").color(TextColor.fromHexString("#dff9fb"))).decoration(TextDecoration.BOLD, TextDecoration.State.FALSE));
+        ).append(Component.text("You can follow the gameplay as a spectator.").color(TextColor.fromHexString("#dff9fb")).decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)));
 
         GameManager.checkWinner();
     }
 
     public static void setSpectator(Player player) {
         spectators.add(player);
+        player.updateViewableRule(PlayerManager::isSpectator);
+        PlayerInfoRemovePacket playerInfoPacket = new PlayerInfoRemovePacket(player.getUuid());
         GameManager.getPlayers().forEach(otherPlayer -> {
-            if (otherPlayer != player && !isSpectator(otherPlayer)) {
-                hidePlayer(otherPlayer, player);
-            } else {
-                showPlayer(otherPlayer, player);
-            }
+            if (!PlayerManager.isSpectator(otherPlayer)) otherPlayer.sendPacket(playerInfoPacket);
+            if (!PlayerManager.isSpectator(otherPlayer)) otherPlayer.sendPacket(playerInfoPacket);
         });
+
         player.getInventory().clear();
         player.setGameMode(GameMode.ADVENTURE);
         player.setHealth(20);
@@ -90,13 +91,6 @@ public class PlayerManager {
         player.addEffect(new Potion(PotionEffect.INVISIBILITY, (byte) 1, 100));
     }
 
-    private static void hidePlayer(Player viewer, Player target) {
-        target.removeViewer(viewer);
-    }
-
-    private static void showPlayer(Player viewer, Player target) {
-        target.addViewer(viewer);
-    }
 
     public static boolean isSpectator(Player player) {
         return spectators.contains(player);
