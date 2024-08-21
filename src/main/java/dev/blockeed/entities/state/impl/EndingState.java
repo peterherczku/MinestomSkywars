@@ -11,6 +11,7 @@ import net.kyori.adventure.title.TitlePart;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
+import net.minestom.server.event.player.PlayerStopFlyingEvent;
 
 public class EndingState extends GameState {
 
@@ -57,6 +58,11 @@ public class EndingState extends GameState {
     @Override
     public EventNode<Event> events() {
         EventNode<Event> node = EventNode.all("ending-state");
+        node.addListener(PlayerStopFlyingEvent.class, event -> {
+            if (PlayerManager.isSpectator(event.getPlayer())) {
+                event.getPlayer().setFlying(true);
+            }
+        });
         return node;
     }
 }

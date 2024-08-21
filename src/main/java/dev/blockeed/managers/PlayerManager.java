@@ -26,37 +26,23 @@ public class PlayerManager {
     public static void killPlayer(Player player, Damage damage) {
         setSpectator(player);
         Component text;
-        if (damage != null) {
-            if (damage.getType() == DamageType.PLAYER_ATTACK && damage.getAttacker() != null && damage.getAttacker() instanceof Player damager) {
-                text = Constants.PREFIX.append(
-                        Component
-                                .text(player.getUsername())
-                                .color(TextColor.fromHexString("#95afc0"))
-                                .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
-                                .append(Component
-                                        .text(" has been killed by ")
-                                        .color(TextColor.fromHexString("#dff9fb"))
-                                        .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
-                                ).append(Component
-                                        .text(damager.getUsername())
-                                        .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
-                                        .color(TextColor.fromHexString("#95afc0"))
-                                )
-                );
-                PlayerManager.incrementKill(damager);
-            } else {
-                text = Constants.PREFIX.append(
-                        Component
-                                .text(player.getUsername())
-                                .color(TextColor.fromHexString("#95afc0"))
-                                .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
-                                .append(Component
-                                        .text(" has died.")
-                                        .color(TextColor.fromHexString("#dff9fb"))
-                                        .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
-                                )
-                );
-            }
+        if (damage != null && damage.getType() == DamageType.PLAYER_ATTACK && damage.getAttacker() != null && damage.getAttacker() instanceof Player damager) {
+            text = Constants.PREFIX.append(
+                    Component
+                            .text(player.getUsername())
+                            .color(TextColor.fromHexString("#95afc0"))
+                            .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
+                            .append(Component
+                                    .text(" has been killed by ")
+                                    .color(TextColor.fromHexString("#dff9fb"))
+                                    .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
+                            ).append(Component
+                                    .text(damager.getUsername())
+                                    .decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
+                                    .color(TextColor.fromHexString("#95afc0"))
+                            )
+            );
+            PlayerManager.incrementKill(damager);
         } else {
             text = Constants.PREFIX.append(
                     Component
@@ -95,13 +81,13 @@ public class PlayerManager {
             }
         });
         player.getInventory().clear();
+        player.setGameMode(GameMode.ADVENTURE);
         player.setHealth(20);
         player.setFood(20);
         player.teleport(GameManager.getMap().getSpectatorLocation());
         player.setAllowFlying(true);
         player.setFlying(true);
         player.addEffect(new Potion(PotionEffect.INVISIBILITY, (byte) 1, 100));
-        player.setGameMode(GameMode.ADVENTURE);
     }
 
     private static void hidePlayer(Player viewer, Player target) {

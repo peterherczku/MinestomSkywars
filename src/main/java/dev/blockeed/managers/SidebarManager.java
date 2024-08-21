@@ -6,6 +6,7 @@ import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
+import net.minestom.server.scoreboard.BelowNameTag;
 import net.minestom.server.scoreboard.Sidebar;
 import net.minestom.server.timer.TaskSchedule;
 
@@ -32,6 +33,7 @@ public class SidebarManager {
     }
 
     public static void addPlayer(Player player) {
+        player.setBelowNameTag(new BelowNameTag("test", Component.text("LvL ").color(TextColor.fromHexString("#95a5a6")).append(Component.text("50").color(TextColor.fromHexString("#ecf0f1")))));
         Sidebar sidebar = new Sidebar(Component.text("SkyWars").color(TextColor.fromHexString("#7ed6df")).decorate(TextDecoration.BOLD));
         Sidebar.ScoreboardLine line1 = new Sidebar.ScoreboardLine(
                 "1",

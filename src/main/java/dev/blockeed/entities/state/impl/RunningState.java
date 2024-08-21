@@ -88,6 +88,11 @@ public class RunningState extends GameState {
                 event.getPlayer().setFlying(true);
             }
         });
+        node.addListener(PlayerDisconnectEvent.class, event -> {
+           Player player = event.getPlayer();
+           if (PlayerManager.isSpectator(player)) return;
+           PlayerManager.killPlayer(player, null);
+        });
         node.addListener(PlayerBlockPlaceEvent.class, event -> {
             if (PlayerManager.isSpectator(event.getPlayer())) {
                 event.setCancelled(true);
