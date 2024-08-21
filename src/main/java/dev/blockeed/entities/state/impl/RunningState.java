@@ -60,6 +60,13 @@ public class RunningState extends GameState {
                 .version(CombatVersion.LEGACY)
                 .add(CombatFeatures.VANILLA_FALL)
                 .add(CombatFeatures.VANILLA_PLAYER_STATE)
+                .add(CombatFeatures.VANILLA_ATTACK)
+                .add(CombatFeatures.VANILLA_KNOCKBACK)
+                .add(CombatFeatures.VANILLA_ARMOR)
+                .add(CombatFeatures.VANILLA_CRITICAL)
+                .add(CombatFeatures.VANILLA_DAMAGE)
+                .add(CombatFeatures.VANILLA_ITEM_DAMAGE)
+                .add(CombatFeatures.VANILLA_ENCHANTMENT)
                 .build();
         node.addChild(featureSet.createNode());
         node.addListener(PlayerBlockBreakEvent.class, event -> {
@@ -123,6 +130,7 @@ public class RunningState extends GameState {
             if ((!(event.getEntity() instanceof Player player))) return;
             if (!PlayerManager.isSpectator(player)) {
                 if (player.getHealth() - event.getDamage().getAmount() > 0) return;
+                event.setCancelled(true);
                 PlayerManager.killPlayer(player, event.getDamage());
                 return;
             }

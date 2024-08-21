@@ -14,11 +14,14 @@ import net.minestom.server.potion.Potion;
 import net.minestom.server.potion.PotionEffect;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PlayerManager {
 
     private static List<Player> spectators = new ArrayList<>();
+    private static Map<Player, Integer> kills = new HashMap<>();
 
     public static void killPlayer(Player player, Damage damage) {
         setSpectator(player);
@@ -40,6 +43,7 @@ public class PlayerManager {
                                         .color(TextColor.fromHexString("#95afc0"))
                                 )
                 );
+                PlayerManager.incrementKill(damager);
             } else {
                 text = Constants.PREFIX.append(
                         Component
@@ -111,4 +115,22 @@ public class PlayerManager {
     public static boolean isSpectator(Player player) {
         return spectators.contains(player);
     }
+
+    public static int getKills(Player player) {
+        if (!kills.containsKey(player)) return 0;
+        return kills.get(player);
+    }
+
+    public static void addKill(Player player, int amount) {
+        if (!kills.containsKey(player)) {
+            kills.put(player, amount);
+        } else {
+            kills.replace(player, kills.get(player) + amount);
+        }
+    }
+
+    public static void incrementKill(Player player) {
+        addKill(player, 1);
+    }
+
 }

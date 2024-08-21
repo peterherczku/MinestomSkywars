@@ -16,7 +16,7 @@ import net.minestom.server.event.player.PlayerSpawnEvent;
 
 public class LobbyState extends GameState {
     public LobbyState() {
-        super(10);
+        super(15);
     }
 
     @Override

@@ -26,6 +26,7 @@ public class WaitingState extends GameState {
         for (int i = 0; i < GameManager.getPlayers().size(); i++) {
             Player player = GameManager.getPlayers().get(i);
             Pos pos = GameManager.getMap().getSpawnPoints().get(i);
+            Pos spawnPoint = new Pos(pos.blockX(), pos.blockY(), pos.blockZ());
             player.getInstance().setBlock(pos.add(0, -1 ,0), Block.GLASS);
             for(int j = 0; j < 3; j++) {
                 player.getInstance().setBlock(pos.add(1, j ,0), Block.GLASS);
@@ -33,7 +34,7 @@ public class WaitingState extends GameState {
                 player.getInstance().setBlock(pos.add(0, j ,-1), Block.GLASS);
                 player.getInstance().setBlock(pos.add(-1, j ,0), Block.GLASS);
             }
-            player.teleport(pos.add(0.5, 0, 0.5));
+            player.teleport(spawnPoint.add(0.5, 0, 0.5));
         }
     }
 

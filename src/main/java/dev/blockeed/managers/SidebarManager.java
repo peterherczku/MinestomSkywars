@@ -32,7 +32,7 @@ public class SidebarManager {
     }
 
     public static void addPlayer(Player player) {
-        Sidebar sidebar = new Sidebar("");
+        Sidebar sidebar = new Sidebar(Component.text("SkyWars").color(TextColor.fromHexString("#7ed6df")).decorate(TextDecoration.BOLD));
         Sidebar.ScoreboardLine line1 = new Sidebar.ScoreboardLine(
                 "1",
                 Component.text("  www.blockeed.dev").color(TextColor.fromHexString("#7ed6df")),
@@ -60,7 +60,7 @@ public class SidebarManager {
         );
         Sidebar.ScoreboardLine line6 = new Sidebar.ScoreboardLine(
                 "6",
-                Component.text("Kills: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text("0").color(TextColor.fromHexString("#7ed6df"))),
+                Component.text("Kills: ").color(TextColor.fromHexString("#dff9fb")).append(Component.text(PlayerManager.getKills(player)).color(TextColor.fromHexString("#7ed6df"))),
                 6
         );
         Sidebar.ScoreboardLine line7 = new Sidebar.ScoreboardLine(
@@ -88,6 +88,7 @@ public class SidebarManager {
         sidebar.createLine(line8);
         sidebar.createLine(line9);
         sidebar.addViewer(player);
+        sidebars.put(player, sidebar);
     }
 
     public static void removePlayer(Player player) {

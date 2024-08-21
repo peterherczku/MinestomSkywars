@@ -31,9 +31,9 @@ public class EndingState extends GameState {
             if (!PlayerManager.isSpectator(player)) PlayerManager.setSpectator(player);
             if (winner != null) {
                 player.sendMessage(Constants.PREFIX.append(
-                        Component.text(player.getUsername()).color(TextColor.fromHexString("#7ed6df")).decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
+                        Component.text(winner.getUsername()).color(TextColor.fromHexString("#7ed6df")).decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)
                 ).append(Component.text(" has won the game!").color(TextColor.fromHexString("#dff9fb")).decoration(TextDecoration.BOLD, TextDecoration.State.FALSE)));
-                Component title = Component.text(player.getUsername()).decorate(TextDecoration.BOLD).color(TextColor.fromHexString("#7ed6df"));
+                Component title = Component.text(winner.getUsername()).decorate(TextDecoration.BOLD).color(TextColor.fromHexString("#7ed6df"));
                 Component subtitle = Component.text("has won the game").color(TextColor.fromHexString("#95afc0"));
                 player.sendTitlePart(TitlePart.TITLE, title);
                 player.sendTitlePart(TitlePart.SUBTITLE, subtitle);
